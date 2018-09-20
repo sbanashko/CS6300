@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"
+            android:orientation="vertical"
+            android:layout_marginLeft="4dp">
+
+            <TextView
+                android:id="@+id/rating_fname_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:gravity="left"
+                android:text="First Name"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/rating_lname_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:gravity="left"
+                android:text="Last Name"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:orientation="vertical"
+            android:layout_marginLeft="4dp">
+
+            <TextView
+                android:id="@+id/rating_text_view1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:text="@string/ratings_attempted_text"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/rating_attempted_count_text_view"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/circle"
+                android:backgroundTint="@android:color/darker_gray"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/default_attempted_cryptograms_count"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.1"
+            android:layout_marginLeft="4dp">
+
+            <TextView
+                android:id="@+id/rating_text_view2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:text="@string/ratings_incorrect_text"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/rating_incorrect_count_text_view"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/circle"
+                android:backgroundTint="@android:color/holo_red_light"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/default_incorrect_submissions_count"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0.1"
+            android:layout_marginLeft="4dp">
+
+            <TextView
+                android:id="@+id/rating_text_view3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:text="@string/ratings_solved_text"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/rating_solved_count_text_view"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/circle"
+                android:backgroundTint="@android:color/holo_green_light"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="@string/default_solved_cryptograms_count"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <!-- A gray divider line at the bottom of each task -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+</LinearLayout>

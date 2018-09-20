@@ -1,0 +1,16 @@
+1. I like how you did the cryptogram class. To "attempt" it is the right way to go. 
+2. I was a bit confused on the UUIDGeneratorService. Could you explain this a little more in detail?
+3. The Cipher was a really cool idea. I liked how you used the string and let that pass first.
+4. The player ID overall was a good approach. would a subclass be needed here? I may need help understanding how this will go with the game. 
+5. Overall great job I really liked how your design kind of flows and is not in pieces. I feel like once we put our diagrams together we will have a great design!
+
+
+
+
+
+
+
+
+
+
+

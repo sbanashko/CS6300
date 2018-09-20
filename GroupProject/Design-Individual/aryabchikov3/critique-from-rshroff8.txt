@@ -1,0 +1,8 @@
+1. Should both the user and admin have a username?
+2. The SimpleSubstitutionCipher class looks great. We actually use something similar at work, but not sure how it works on the backend :). I think we use JMeter for this. 
+3. The Player Ratings Class may not be needed. I saw that nmarsh also said something about this. 
+4. Overall, your design is kind of a cross between a few I have seen. It has both simple and complex components, which I think will be needed for this project.
+
+
+
+

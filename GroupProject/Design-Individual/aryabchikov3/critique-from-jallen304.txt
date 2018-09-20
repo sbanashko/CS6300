@@ -1,0 +1,11 @@
+I had initially created a user Superclass and subclassed it with both local player and administrator as well.  In hindsight it makes a lot of sense to do this because the functionality is vastly different for them.  However, shouldn't the administrator have a username as well?  That could be something present on the superclass of User.
+
+Your design is extremely detailed had you have a very good description for all of your choices.
+
+I like the way you modeled the cryptogram and SimpleSubstitutionCipher classes.  In my design I was picturing the administrator simply entering both the encoded phrase and the solution to said phrase.  The idea of creating encryption settings in the Cipher would allow an administrator to create far more Cryptograms to solve than if they had to enter both the phrase and solution individually.
+
+For requirement 7, I added a property that contains allowable characters.  I liked the functionality it added.  After looking at your design I think it would fit in with your SimpleSubstitutionCipher or may even already be implemented in the way you handle your ciphertextAlphabet.
+
+I really like the detail you added in satisfying requirement 9.  The only difference I see is that you implemented the ability for a user to enter a solution phrase and have the encode method generate the matching encoded phrase.  This seems outside of what the requirements call for but I really like it.  As Steve Jobs once said, sometimes people don't know what they want until you show it to them.
+
+The potential solution association class was a good way to handle solution attempts and progress.  I chose to implement them directly on the cryptogram class but after looking at yours I like it much more.

@@ -1,0 +1,5 @@
+If you move the username only to the player class how does an administrator log into the application?
+
+I like the solution class.  I didn't add something like this but I wish I did.  However, the requirement 10 b states "View the chosen cryptogram (including any prior solution, complete or in progress...)  I take that to mean you can view different attempts that were previously submitted.  That's not overly clear by the method name viewAlreadySolvedCryptograms but I see in your description you mention that the "Player can view any existing attempts" this way.  If each solution is unique as in one per attempt, how does getNumberOfIncorrectSubmissions work?  Do each of these soultion attempt classes have to have the number incremented upon each attempt?
+
+The player ratings are defined in your class diagram as being an integer but the requirements detail it contains name, num solved, num started, and num wrong.  Even though these are fetched and sent over the ExternalWebInterface I believe it is something that should still be modeled.

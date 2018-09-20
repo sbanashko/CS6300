@@ -1,0 +1,10 @@
+1. I am wondering how the Admin and the Player differ. Will the authentication be passed for both? Not sure if this is a valid quesiton. 
+2. How does the EWS work in your model? Is the member name admin?
+3. I like the design because it is easy to follow. I think using this model as a blueprint would be great. 
+
+
+
+
+
+
+

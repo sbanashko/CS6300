@@ -1,0 +1,54 @@
+I disagree with your decision to have no shared information on the User subclass - both the administrator and the LocalPlayer will have a UserName and Password. For a LocalPlayer, however, I noted these were simply not mandatory.
+
+> That is probably true. Username indeed can be moved to a User superclass. I'm not sure on passwords, since auth is optional, I simply omitted everything related to passwords, etc. from the design. Also since where may exists some third-party auth service, the passwords should (probably) never be stored/persisted. 
+---
+
+I liked your decision to have Cryptogram use the SimpleSubstitutionCipher - however, do you think the Cryptogram itself should use it, or the Administrator, as the cipher needs to be computed at the time the Cryptogram is created?
+
+> Hmmm... The SimpleSubstitutionCipher needs to be configured to be used to encrypt the phrase. There should be SimpleSubstitutionCipher methods permitting such configuration. Since SimpleSubstitutionCipher is aggregated by Cryptogram, the Cryptogram class should potentially have appropriate config methods. So, these methods should be exposed to be used by some client. Should the Administrator class have a method that accepts an alphabet and a key (in addition to solutionPhrase & encodedPhrase)? IMO, not necessarily. These could be set as defaults in Cryptogram class (the Reqs do not say anything on which cypher/alphabet should be used, so we can assume some defaults without asking them from the user). In case we permit these setting to vary across cryptograms, should they also be persisted in the database? Probably not -- as long as we saved encoded phrase and a solution, these settings  are no longer needed (i.e. we can always verify the solution supplied against the initially given encoding). 
+---
+
+I'm torn between modeling the repositories explicitly - my thought was that since every instance of every class 
+will be persisted, it doesn't add anything in particular to the design; however, it does make it clearer that we are, in fact, persisting everything.
+
+> Yeah, omitting everything except domain entities was my first thought. Initially I just marked classes as "persistent". But anyways we will have to deal with persistency, and this probably would be one of the first things to decide -- how to store info in a DB in a transparent (to domain classes) manner. That being said, I included repository classes into the design. It will save us time if we start thinking on this at design time, i.e. before development. But again, that is _not_ what I _usually_ would model in a class diagram. The key idea behind xxxRepository classes (not sure though if this is exactly a repo pattern) is to allow clients (UI, Biz entities, whatever) to call repo methods passing in domain entities (other domain classes or their fields) and receive back domain entities.
+---
+
+How will you model solutions attempted by non logged-in users? Or did you explicitly choose not to persist them?
+
+> Mmm... If "non logged-in" means "non local" users then yes, I do not persist their solutions. Only local users (added by admin) are able to solve cryptograms, and their solutions are persisted (PotentialSolution & PotentialSolutionRepository). Also the ExternalWebService is not capable of transmitting users (as follows from the Reqs), hence, their solutions; only user ratings can be exchanged between app instances. In other words, there is no way to persist solutions attempted by non-local users because of ExternalWebService limited capabilities.
+---
+
+I liked the explicit contract stated on each method. That's something I'd definitely like to incorporate into the final design.
+
+> I'm not sure if we need to do this over all methods/properties, but it may clarify things (likewise, make them less clear :))
+---
+
+Is the PlayerRatings class strictly necessary? Or can you model player ratings using a sorted collection of submission and player?
+
+> PlayerRatings is a convenience structure. I do not think that a collection of submissions made by a player is sufficient to compute ratings. The way I approached this is upon every submission/attempt (PotentialSolution) I recalculate ratings and send them immediately to the remote server (LocalPlayer::updateRaings). Thus, the remote server always has a fresh version of user ratings. In case I need to display them I can request them back through ExternalWebService::requestPlayerRatings(aPlayer : LocalPlayer) : PlayerRatings.
+>> Per discussion - It's definitely sufficient to simply get a list of players ordered by successful submissions to compute playerratings, and can be done on the fly. 
+>> The outstanding question becomes - while PlayerRatings is definitely good to specify the contract of the method to get PlayerRatings, does that belong in a design document? I feel tying ourselves down to implementation details like that is incorrect at this stage. 
+---
+
+How are you handling the case where multiple users across different instances of the game have the same username?
+
+> Right, I missed that... I don't know how to handle this. We can request user ratings when the user gets created but this may or may not be the same user. Hmmm.. I don't know how to handle this. Can we state this as an explicit assumption in our design?
+---
+
+This is an aside, but your .md file is way better formatted than mine is :D
+> :))) Let's just make team-design.md pretty looking. I don't think TAs are too picky on this though
+---
+
+I like the explicit inclusion of save methods. For my own design, I simply assumed all classes and changes would be persisted (much like an in-progress form on the web); however, that assumption
+may have been too broad and not communicated clearly enough, so I'd like to see it in the final design. 
+
+> We may or may not need them in our domain classes. We will need them in xxxRepository classes most likely (e.g. like addPlayer, getCryptograms, etc.). I started to play with Android and I see this is much in line with how they prefer to communicate to SQLLite
+
+===
+TBD for the final design (as I see it for the time being)
+1.	Move username property to User
+2.	Rework Cryptogram/SimpleSubstitutionCipher methods
+3.	Decide on whether to include or exclude DB classes into the final design (I'm still inclined to let them in)
+4.	Decide on the issue with globally non-unique user names
+5.	?

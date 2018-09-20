@@ -1,0 +1,13 @@
+I originally created the User superclass and subclassed it with player and administrator.  I later decided against it but I really think what I had before, and what you did, were the right way to go.
+
+I really like this cryptogram attempt class.  I was trying to figure out a way to add this functionality to the cryptogram class itself but it wasn't working.
+
+It may have been too much detail to model the UUIDGeneratorService.  I figured they wanted the external web service to act as sort of a black box so you know it would return a UUID but not specifically know how.  I don't think it hurts to have modeled it however.
+
+It's not entirely clear how your CipherService class is being used and it's not well described in the requirement 7 discussion.  I can kind of see where you are going with this though and I assume that an alphabet would be defined (somewhere) and used inside the applyCipherToString method.
+
+I like your approach of adding the playerID to keep players unique even though they can have the same username, however, the requirements specifically call for a unique username.  If this restriction was put in place I don't think the playerid would be necessary.
+
+Even though I commented on it above, I like the CipherService class you created.  The idea of passing a cipher and string and just letting it compute is good.  This would allow for a lot more cipher puzzles to be created than if the administrator had to enter them manually as seems to be suggested in the requirements.
+
+Your solution to number 12 is acceptable but I imagine you would see most of the time a helper class that contains this information.  The same goes for your final remark.  It can be done without creating a seperate class but I think you would generally see this being implemented.

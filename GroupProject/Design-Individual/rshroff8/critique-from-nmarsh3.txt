@@ -1,0 +1,9 @@
+Pros:
+It seems like we all agree on the User/Player/Administrator relationship, and the presence of a Solution class, and generally how it relates to Cryptograms and players.
+It's worth exploring if the edit/save methods really belong on the contract of the Cryptogram.
+
+Cons:
+Do you think the FN/LN belongs on the User object, or on the Player object? Does an administrator also need a username? Do they both need a password?
+Why is the administrator aware of only one cryptogram? 
+Why is a solution aware of the number of cryptograms solved/started?
+Is Solution potentially an aggregation class?

@@ -1,0 +1,13 @@
+Pros:
+I like the LocalDataService - I'm not sure if it belongs in the class diagram, but i'm not sure if it doesn't, either. It's worth exploring. It's interesting to consider the LDS instead of the Admin having the methods that we might associate with administrator.
+It is very simple, which is good for a first pass at a class diagram.
+
+
+Cons:
+I think some of these classes may need more fleshing out and breaking up. For example, do Admin and Player have the same sets of actions they can take?
+does the cryptogram do the encoding, or does the administrator (possibly with some help) at the time the cryptogram is created? 
+Rating is kinda just floating out there, related to nothing.
+How does a cryptogram record attempts made against it by different local users?
+what is membername on the EWS?
+While there is something to explore in the LocalDataService, I feel that some of the methods - ChooseCryptograms(), for example, are methods that a Player would do, and really should be on the player class.
+Did you mean to have all your UML relationships be the same? Also, you are missing multiplicity.

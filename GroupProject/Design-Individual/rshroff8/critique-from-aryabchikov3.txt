@@ -1,0 +1,23 @@
+### General Thoughts
+#### Pros
+
+Well-elaborated design that stays abstract from implementation details, covers major domain entities.
+ 
+#### Cons
+
+Completely excludes persistency layer classes (though disputable); some relationships were made stronger than requited (associations vs dependency).
+
+### Specific Issues
+1.  I generally agree with the list of entities included in the design, except there probably should be a notion of some crypto-algorithm utility class responsible for at least initial encoding of the administrator's supplied solution string upon cryptogram instantiation. It is arguable, however, whether persistency layer class(es) should be completely dropped from the design. In my opinion, it makes some Reqs. satisfaction somewhat implicit (e.g. where do these lists of cryptograms/players come from?), but, on the other hand, this makes the design cleaner and purely "domain-oriented". There was also a discussion on this on Slack.
+
+1.  I agree with User/Player/Administrator hierarchy, though some attributes should be reassigned (e.g. username is a common property). I have a similar issue in my design with an empty User class
+
+1.  I disagree with the existence of an _association_ b/w Player and Administrator. The fact that one creates the other does not seem to be a structural relationship -- just a dependency would suffice
+
+1.  Same argument applies to Administrator - Cryptogram association. Once created it does not need to know about its creator (as vice versa), so a simple dependency is sufficient
+
+1.  A set of methods _getNumberOfCryptogramsXXX_ should probably be moved to a Player class (these are helper methods that aggregate Solutions at a Player level, but do not belong to a Solution class). Or should be replaced with a single method like getRatings() to get all ratings at once in a form of Ratings structure (Nick has also mentioned this in Slack).
+
+1.  I'm not sure on Cryptogram's save/edit methods applicability. The Req.#9 does not specify this functionality, i.e. Cryptograms seem to be created with encoding & solution phrases specified at creation time with no subsequent editing implied.
+
+1.  Req.#11 (_"The list of available cryptograms shall show, for each cryptogram, its identifier, whether the player has solved it, and the number of incorrect solution submissions, if any"_). Should a Cryptogram class include helper methods like getUID(), getIsSolvedBy(aPlayer), getIncorrectSubmissionsCount(aPlayer) to address this requirement explicitly? But again, it is not certain, since we have a Solution class this info can be fetched from, though the presence of these methods make it clear that we addressed Req.#11

@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">SDP Cryptogram</string>
+
+    <!-- Login Activity strings -->
+    <string name="prompt_email">Login</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_username">This username is not valid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="secret_admin_username">admin</string>
+    <string name="secret_player_username">a</string>
+    <string name="option_administrator">Admin</string>
+    <string name="option_player">Player</string>
+
+    <!-- Admin activity menu items -->
+    <string name="title_activity_admin">Admin</string>
+    <string name="menu_action_player_list">PLAYERS</string>
+    <string name="menu_action_cryptogram_list">CRYPTOGRAMS</string>
+
+    <!-- Player activity menu items -->
+    <string name="menu_action_rating_list">RATINGS</string>
+
+    <!-- Player activity strings -->
+    <string name="title_activity_player">Player</string>
+
+    <!-- Default cryptogram list values for CryptogramPlayerViewHolder -->
+    <string name="default_cryptogram_uid">-123</string>
+    <string name="default_cryptogram_is_solved">false</string>
+    <string name="default_cryptogram_incorrect_submissions">0</string>
+    <string name="default_cryptogram_puzzle_default_text">Default text Default text...</string>
+
+    <!-- Default player list values for PlayerViewHolder -->
+    <string name="default_player_id">-1</string>
+    <string name="default_player_fname">First Name</string>
+    <string name="default_player_lname">Last Name</string>
+    <string name="default_player_username">username</string>
+
+    <!-- Default player list values for RatingsViewHolder -->
+    <string name="default_attempted_cryptograms_count">-1</string>
+    <string name="default_incorrect_submissions_count">-1</string>
+    <string name="default_solved_cryptograms_count">-1</string>
+    <string name="ratings_attempted_text">Attempted#</string>
+    <string name="ratings_incorrect_text">Incorrect#</string>
+    <string name="ratings_solved_text">Solved#</string>
+
+    <!-- Default cryptogram list values for CryptogramViewholder -->
+    <string name="default_cryptogram_id">-1</string>
+    <string name="default_cryptogram_caption">No caption</string>
+
+    <!-- Add Player activity strings -->
+    <string name="title_activity_add_player">Player</string>
+    <string name="player_fname_hint">Enter first name</string>
+    <string name="player_lname_hint">Enter last name</string>
+    <string name="player_password_hint">Enter Password</string>
+    <string name="player_username_hint">Enter name (required)</string>
+    <string name="player_add_button_label">ADD</string>
+    <string name="error_nonunique_username">This username is not unique</string>
+
+    <!-- Add Cryptogram activity strings -->
+    <string name="title_activity_add_cryptogram">Cryptogram</string>
+    <string name="btn_run_cipher">RUN CIPHER</string>
+    <string name="cryptogram_solution_hint">Enter a solution phrase</string>
+    <string name="cryptogram_add_button_label">ADD</string>
+    <string name="cryptogram_ciphered_hint">Run cipher to see a cipher</string>
+
+    <!-- CryptogramAttempt activity strings -->
+    <string name="title_activity_cryptogram_attempt">Attempt Puzzle</string>
+
+    <!-- Ratings activity strings -->
+    <string name="title_activity_rating">Ratings</string>
+</resources>
